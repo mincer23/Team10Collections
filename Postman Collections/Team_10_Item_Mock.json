@@ -1,0 +1,1118 @@
+{
+  "info": {
+    "_postman_id": "37f5235a-dbfb-4720-8235-daa31ddbd99f",
+    "name": "Team 10 Item Mock Server",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "items",
+      "item": [
+        {
+          "name": "pricing",
+          "item": [
+            {
+              "name": "promotion",
+              "item": [
+                {
+                  "name": "/items/pricing/promotion",
+                  "_postman_id": "22e4cce9-e5b0-4ddc-8e14-c6a1ddf7627a",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/items/pricing/promotion?index_number=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "items",
+                        "pricing",
+                        "promotion"
+                      ],
+                      "query": [
+                        {
+                          "description": "Sends in a integer that relates to specific items",
+                          "key": "index_number",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Returns promotion details when a specific index number is put in"
+                  },
+                  "response": [
+                    {
+                      "id": "048cdcd4-54f4-4ff9-9633-f80e81230df6",
+                      "name": "E1-Successfully returned promotion details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{url}}/E1/items/pricing/promotion?index_number=1001",
+                          "host": [
+                            "{{url}}"
+                          ],
+                          "path": [
+                            "E1",
+                            "items",
+                            "pricing",
+                            "promotion"
+                          ],
+                          "query": [
+                            {
+                              "key": "index_number",
+                              "value": "1001"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "\"No promotions available for item 1001.\""
+                    },
+                    {
+                      "id": "937f70f5-2d0f-4327-909d-e655bbf6ccb7",
+                      "name": "E2-Invalid request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{url}}/E2/items/pricing/promotion?index_number=1001",
+                          "host": [
+                            "{{url}}"
+                          ],
+                          "path": [
+                            "E2",
+                            "items",
+                            "pricing",
+                            "promotion"
+                          ],
+                          "query": [
+                            {
+                              "key": "index_number",
+                              "value": "1001"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n \"message\": \"Promotion details not retuned. Invalid request.\"\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "/items/pricing/promotion/payment",
+                  "_postman_id": "9dd9cd64-65c3-4555-8c3f-0130d9e7d668",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/items/pricing/promotion/payment?index_number=<integer>&customer_name=<string>&credit_card=<integer>&expiration_date=<string>&security_number=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "items",
+                        "pricing",
+                        "promotion",
+                        "payment"
+                      ],
+                      "query": [
+                        {
+                          "description": "Sends in a integer that relates to specific items",
+                          "key": "index_number",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Sends in user's payment information to pay for item",
+                          "key": "customer_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sends in user's payment information to pay for item",
+                          "key": "credit_card",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Sends in user's payment information to pay for item",
+                          "key": "expiration_date",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sends in user's payment information to pay for item",
+                          "key": "security_number",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Post a payment to pay for an item based on item index"
+                  },
+                  "response": [
+                    {
+                      "id": "9522e220-9c1e-4660-8482-4f9ebbfa42f5",
+                      "name": "E1-Payment processed successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{url}}/E1/items/pricing/promotion/payment?index_number=1001&customer_name=John Doe&credit_card=12345678&expiration_date=06/25&security_number=777",
+                          "host": [
+                            "{{url}}"
+                          ],
+                          "path": [
+                            "E1",
+                            "items",
+                            "pricing",
+                            "promotion",
+                            "payment"
+                          ],
+                          "query": [
+                            {
+                              "key": "index_number",
+                              "value": "1001"
+                            },
+                            {
+                              "key": "customer_name",
+                              "value": "John Doe"
+                            },
+                            {
+                              "key": "credit_card",
+                              "value": "12345678"
+                            },
+                            {
+                              "key": "expiration_date",
+                              "value": "06/25"
+                            },
+                            {
+                              "key": "security_number",
+                              "value": "777"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "\"Payment for item 1001 was processed successfully.\""
+                    },
+                    {
+                      "id": "de6457f4-5145-4919-8aa6-37b2d57422ef",
+                      "name": "E2-Invalid request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{url}}/items/pricing/promotion/payment?index_number=1001&customer_name=John Doe&credit_card=1234578&expiration_date=06/25&security_number=777",
+                          "host": [
+                            "{{url}}"
+                          ],
+                          "path": [
+                            "items",
+                            "pricing",
+                            "promotion",
+                            "payment"
+                          ],
+                          "query": [
+                            {
+                              "key": "index_number",
+                              "value": "1001"
+                            },
+                            {
+                              "key": "customer_name",
+                              "value": "John Doe"
+                            },
+                            {
+                              "key": "credit_card",
+                              "value": "1234578"
+                            },
+                            {
+                              "key": "expiration_date",
+                              "value": "06/25"
+                            },
+                            {
+                              "key": "security_number",
+                              "value": "777"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n \"message\": \"Payment was not successfully processed. Invalid request.\"\n}"
+                    }
+                  ]
+                }
+              ],
+              "_postman_id": "9636f50d-842e-4539-bc35-467f43ea4810",
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "/items/pricing",
+              "_postman_id": "ac4716d1-70bb-4ae6-8fe7-6655d21d5acb",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/items/pricing?index_number=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "items",
+                    "pricing"
+                  ],
+                  "query": [
+                    {
+                      "description": "Sends in a integer that relates to specific items",
+                      "key": "index_number",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Returns pricing details when a specific index number is put in"
+              },
+              "response": [
+                {
+                  "id": "31dd6688-d222-443d-9a80-a49be72657f8",
+                  "name": "E2-Invalid request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/E2/items/pricing?index_number=1001",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "E2",
+                        "items",
+                        "pricing"
+                      ],
+                      "query": [
+                        {
+                          "key": "index_number",
+                          "value": "1001"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n \"message\": \"Pricing details not returned. Invalid request.\"\n}"
+                },
+                {
+                  "id": "b46578d7-99b3-4a5e-8041-e0e5782a69f9",
+                  "name": "E1 - Successfully returned pricing details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/E1/items/pricing?index_number=1001",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "E1",
+                        "items",
+                        "pricing"
+                      ],
+                      "query": [
+                        {
+                          "key": "index_number",
+                          "value": "1001"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "\"Item 1001 is $19.64\""
+                }
+              ]
+            }
+          ],
+          "_postman_id": "9cedf002-3ce2-43bc-b138-4f07b7917e7c",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "/items",
+          "_postman_id": "f3ce8e69-a020-4dfa-a861-bcd348d55f20",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/items?item_name=<string>&item_type=<string>&description=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "items"
+              ],
+              "query": [
+                {
+                  "description": "Sends in details to get an item index number back",
+                  "key": "item_name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sends in details to get an item index number back",
+                  "key": "item_type",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sends in details to get an item index number back",
+                  "key": "description",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns an index number when item details are put in"
+          },
+          "response": [
+            {
+              "id": "818f7b0d-368f-42dc-8a9a-6f286805f3e1",
+              "name": "E1-Successfully returned an index number",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/E1/tems?item_name=Ring Season&item_type=T-Shirt&description=Black XXL",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "E1",
+                    "tems"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_name",
+                      "value": "Ring Season"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "T-Shirt"
+                    },
+                    {
+                      "key": "description",
+                      "value": "Black XXL"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "1001"
+            },
+            {
+              "id": "b3738b0c-d9c3-4796-ba2d-502156ee7a03",
+              "name": "E2 - Invalid request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/E2/items?item_name=Ring Season&item_type=T-Shirt&description=Black XXL",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "E2",
+                    "items"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_name",
+                      "value": "Ring Season"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "T-Shirt"
+                    },
+                    {
+                      "key": "description",
+                      "value": "Black XXL"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Index number was not successfully returned. Invalid request.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/items",
+          "_postman_id": "4f3e7c08-ee83-4e61-ac35-edad564c55e6",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/items?item_name=<string>&item_type=<string>&description=<string>&index_number=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "items"
+              ],
+              "query": [
+                {
+                  "description": "Sends in details to get an item index number back",
+                  "key": "item_name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sends in details to get an item index number back",
+                  "key": "item_type",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sends in details to get an item index number back",
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sends in a integer that relates to specific items",
+                  "key": "index_number",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Post a new item after index number is returned; send in item details and index number"
+          },
+          "response": [
+            {
+              "id": "01c9f119-2d62-4d05-be3e-8ad635d16566",
+              "name": "E1-Successfully posted a new item",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/E1/items?item_name=Ring Season&item_type=T-Shirt&description=Black XXL&index_number=1001",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "E1",
+                    "items"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_name",
+                      "value": "Ring Season"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "T-Shirt"
+                    },
+                    {
+                      "key": "description",
+                      "value": "Black XXL"
+                    },
+                    {
+                      "key": "index_number",
+                      "value": "1001"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"Item was successfully posted.\""
+            },
+            {
+              "id": "39786530-b419-424a-b02e-ddfcd56239ca",
+              "name": "E2-Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/E2/items?item_name=Ring Season&item_type=T-Shirt&description=Black XXL&index_number=1001",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "E2",
+                    "items"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_name",
+                      "value": "Ring Season"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "T-Shirt"
+                    },
+                    {
+                      "key": "description",
+                      "value": "Black XXL"
+                    },
+                    {
+                      "key": "index_number",
+                      "value": "1001"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Item was not posted successfully. Invalid request.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/items/search",
+          "_postman_id": "d1672632-1f1f-4bb6-bb0f-6249b2ef33a3",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/items/search?item_type=<string>&description=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "items",
+                "search"
+              ],
+              "query": [
+                {
+                  "description": "Sends in search criteria to get an item index number back",
+                  "key": "item_type",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sends in search criteria to get an item index number back",
+                  "key": "description",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns an index number search criteria is put in"
+          },
+          "response": [
+            {
+              "id": "3e71b32b-a91c-4ad1-981e-57570d32a60d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/items/search?item_type=<string>&description=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "items",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"laborum esse\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/items/details",
+          "_postman_id": "763e19f2-3cae-4af9-9779-4b7218b097bb",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/items/details?index_number=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "items",
+                "details"
+              ],
+              "query": [
+                {
+                  "description": "Sends in a integer that relates to specific items",
+                  "key": "index_number",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Returns item details when a specific index number is put in"
+          },
+          "response": [
+            {
+              "id": "c8f4ebb3-cf80-40ae-8738-d496595e8394",
+              "name": "E2- Invalid request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/E2/items/details?index_number=1001",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "E2",
+                    "items",
+                    "details"
+                  ],
+                  "query": [
+                    {
+                      "key": "index_number",
+                      "value": "1001"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Item details were not successfully returned. Invalid request.\"\n}"
+            },
+            {
+              "id": "ceb22c7f-01a8-45b1-9254-bf404d9b5c0f",
+              "name": "E1-Successfully returned item details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/E1/items/details?index_number=1001",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "E1",
+                    "items",
+                    "details"
+                  ],
+                  "query": [
+                    {
+                      "key": "index_number",
+                      "value": "1001"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n {\n  \"item_name\": \"Ring Season\",\n  \"item_type\": \"T-Shirt\",\n  \"description\": \"Black XXL\"\n },\n {\n  \"item_name\": \"All In\",\n  \"item_type\": \"Orange\",\n  \"description\": \"Sweatshirt XXL\"\n }\n]"
+            }
+          ]
+        },
+        {
+          "name": "/items/inventory",
+          "_postman_id": "f844332c-205c-4f47-b5ad-275e14d85853",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/items/inventory?index_number=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "items",
+                "inventory"
+              ],
+              "query": [
+                {
+                  "description": "Sends in a integer that relates to specific items",
+                  "key": "index_number",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Returns inventory details when a specific index number is put in"
+          },
+          "response": [
+            {
+              "id": "97eeb785-8da6-4686-99e5-65641856e43f",
+              "name": "E2-Invalid request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/E2/items/inventory?index_number=1001",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "E2",
+                    "items",
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "index_number",
+                      "value": "1001"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Inventory details not returned. Invalid request.\"\n}"
+            },
+            {
+              "id": "e17797b1-1519-4878-8b94-4b8792357012",
+              "name": "E1-Successfully returned inventory details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/iE1/tems/inventory?index_number=1001",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "iE1",
+                    "tems",
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "index_number",
+                      "value": "1001"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "78"
+            }
+          ]
+        },
+        {
+          "name": "/items/cart",
+          "_postman_id": "6489cfd7-a212-40d2-81d1-4696b455313b",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/items/cart?index_number=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "items",
+                "cart"
+              ],
+              "query": [
+                {
+                  "description": "Sends in a integer that relates to specific items",
+                  "key": "index_number",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Put an item into cart based on item index"
+          },
+          "response": [
+            {
+              "id": "3b94e8ed-d746-46cb-90ba-cdd17f946301",
+              "name": "E1- Item successfully placed into cart",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/E1/items/cart?index_number=1001",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "E1",
+                    "items",
+                    "cart"
+                  ],
+                  "query": [
+                    {
+                      "key": "index_number",
+                      "value": "1001"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"Item 1001 placed successfully into cart\""
+            },
+            {
+              "id": "e76f26b8-b5ae-4fe4-9ebb-fa1a53f8cfad",
+              "name": "E2-Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/E2/items/cart?index_number=1001",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "E2",
+                    "items",
+                    "cart"
+                  ],
+                  "query": [
+                    {
+                      "key": "index_number",
+                      "value": "1001"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Item 1001 was not placed into cart. Invalid request.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/items/SKUcode",
+          "_postman_id": "f768e39f-9f1e-4221-9702-006d77ccaf10",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/items/SKUcode?index_number=<integer>&sku_code=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "items",
+                "SKUcode"
+              ],
+              "query": [
+                {
+                  "description": "Sends in a integer that relates to specific items",
+                  "key": "index_number",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Sends in SKU code that relates to a specific item",
+                  "key": "sku_code",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Post the SKU code (pass in index number and SKU code)"
+          },
+          "response": [
+            {
+              "id": "42936ce0-5c94-462f-a345-fdbac0c8d61d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/items/SKUcode?index_number=<integer>&sku_code=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "items",
+                    "SKUcode"
+                  ],
+                  "query": [
+                    {
+                      "key": "index_number",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sku_code",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"laborum esse\"\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "e462fd99-919a-4098-a70c-7f37f4342a02"
+    }
+  ],
+  "variable": [
+    {
+      "id": "baseUrl",
+      "key": "baseUrl",
+      "value": "https://cusports.com/items",
+      "type": "string"
+    }
+  ]
+}
