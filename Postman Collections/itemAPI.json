@@ -1,0 +1,342 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Team 10 Item API
+servers:
+  - url: 'https://cusports.com/items'
+
+paths:
+  /items:
+    get:
+      description: Returns an index number when item details are put in
+      parameters:
+        #  ----- Added line  ------------------------------------------
+        - $ref: '#/components/parameters/item_details'
+        #  ---- /Added line  ------------------------------------------
+      responses:
+        '200':
+          description: Successfully returned an index number
+          content:
+            application/json:
+              schema:
+                type: integer
+                items:
+                  #  ----- Added line  --------------------------------
+                  $ref: '#/components/schemas/Number'
+                  #  ---- /Added line  --------------------------------
+        '400':
+          #  ----- Added line  ----------------------------------------
+          $ref: '#/components/responses/400Error'
+          #  ---- /Added line  ---------------------------------------- 
+
+    post:
+      description: Post a new item after index number is returned; send in item details and index number 
+      parameters:
+        #  ----- Added line  ------------------------------------------
+        - $ref: '#/components/parameters/item_details'
+        - $ref: '#/components/parameters/item_index'
+        #  ---- /Added line  ------------------------------------------
+      responses:
+        '200':
+          description: Successfully posted a new item
+          content:
+            application/json:
+              schema:
+                type: string
+                items:
+                  #  ----- Added line  --------------------------------
+                  $ref: '#/components/schemas/Item'
+                  #  ---- /Added line  --------------------------------
+        '400':
+          #  ----- Added line  ----------------------------------------
+          $ref: '#/components/responses/400Error'
+          #  ---- /Added line  ---------------------------------------- 
+  /items/search:
+    get:
+        description: Returns an index number search criteria is put in
+        parameters:
+            #  ----- Added line  ------------------------------------------
+            - $ref: '#/components/parameters/search_criteria'
+            #  ---- /Added line  ------------------------------------------
+        responses:
+         '200':
+            description: Successfully returned an index number
+            content:
+                application/json:
+                schema:
+                    type: integer
+                    items:
+                    #  ----- Added line  --------------------------------
+                    $ref: '#/components/schemas/Number'
+                    #  ---- /Added line  --------------------------------
+            '400':
+            #  ----- Added line  ----------------------------------------
+            $ref: '#/components/responses/400Error'
+            #  ---- /Added line  ---------------------------------------- 
+            
+  /items/details:
+    get:
+      description: Returns item details when a specific index number is put in
+      parameters:
+        #  ----- Added line  ------------------------------------------
+        - $ref: '#/components/parameters/item_index'
+        #  ---- /Added line  ------------------------------------------
+      responses:
+        '200':
+          description: Successfully returned item details
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  #  ----- Added line  --------------------------------
+                  $ref: '#/components/schemas/ItemDetails'
+                  #  ---- /Added line  --------------------------------
+        '400':
+          #  ----- Added line  ----------------------------------------
+          $ref: '#/components/responses/400Error'
+          #  ---- /Added line  ---------------------------------------- 
+  /items/inventory:
+    get:
+      description: Returns inventory details when a specific index number is put in
+      parameters:
+        #  ----- Added line  ------------------------------------------
+        - $ref: '#/components/parameters/item_index'
+        #  ---- /Added line  ------------------------------------------
+      responses:
+        '200':
+          description: Successfully returned inventory details
+          content:
+            application/json:
+              schema:
+                type: integer
+                items:
+                  #  ----- Added line  --------------------------------
+                  $ref: '#/components/schemas/Inventory'
+                  #  ---- /Added line  --------------------------------
+        '400':
+          #  ----- Added line  ----------------------------------------
+          $ref: '#/components/responses/400Error'
+          #  ---- /Added line  ---------------------------------------- 
+
+  /items/cart:
+    post:
+      description: Put an item into cart based on item index
+      parameters:
+        #  ----- Added line  ------------------------------------------
+        - $ref: '#/components/parameters/item_index'
+        #  ---- /Added line  ------------------------------------------
+      responses:
+        '200':
+          description: Item successfully placed into cart
+          content:
+            application/json:
+              schema:
+                type: string
+                items:
+                  #  ----- Added line  --------------------------------
+                  $ref: '#/components/schemas/Cart'
+                  #  ---- /Added line  --------------------------------
+        '400':
+          #  ----- Added line  ----------------------------------------
+          $ref: '#/components/responses/400Error'
+          #  ---- /Added line  ---------------------------------------- 
+  /items/pricing:
+    get:
+      description: Returns pricing details when a specific index number is put in
+      parameters:
+        #  ----- Added line  ------------------------------------------
+        - $ref: '#/components/parameters/item_index'
+        #  ---- /Added line  ------------------------------------------
+      responses:
+        '200':
+          description: Successfully returned pricing details 
+          content:
+            application/json:
+              schema:
+                type: string
+                items:
+                  #  ----- Added line  --------------------------------
+                  $ref: '#/components/schemas/Pricing'
+                  #  ---- /Added line  --------------------------------
+        '400':
+          #  ----- Added line  ----------------------------------------
+          $ref: '#/components/responses/400Error'
+          #  ---- /Added line  ---------------------------------------- 
+  /items/pricing/promotion:
+    get:
+      description: Returns promotion details when a specific index number is put in
+      parameters:
+        #  ----- Added line  ------------------------------------------
+        - $ref: '#/components/parameters/item_index'
+        #  ---- /Added line  ------------------------------------------
+      responses:
+        '200':
+          description: Successfully returned promotion details
+          content:
+            application/json:
+              schema:
+                type: string
+                items:
+                  #  ----- Added line  --------------------------------
+                  $ref: '#/components/schemas/Promotion'
+                  #  ---- /Added line  --------------------------------
+        '400':
+          #  ----- Added line  ----------------------------------------
+          $ref: '#/components/responses/400Error'
+          #  ---- /Added line  ---------------------------------------- 
+  /items/pricing/promotion/payment:
+    post:
+      description: Post a payment to pay for an item based on item index
+      parameters:
+        #  ----- Added line  ------------------------------------------
+        - $ref: '#/components/parameters/item_index'
+        - $ref: '#/components/parameters/payment_info'
+        #  ---- /Added line  ------------------------------------------
+      responses:
+        '200':
+          description: Payment processed successfully
+          content:
+            application/json:
+              schema:
+                type: string
+                items:
+                  #  ----- Added line  --------------------------------
+                  $ref: '#/components/schemas/Payment'
+                  #  ---- /Added line  --------------------------------
+        '400':
+          #  ----- Added line  ----------------------------------------
+          $ref: '#/components/responses/400Error'
+          #  ---- /Added line  ---------------------------------------- 
+
+  /items/SKUcode: 
+    post:
+        description: Post the SKU code (pass in index number and SKU code)
+        parameters:
+            #  ----- Added line  ------------------------------------------
+            - $ref: '#/components/parameters/item_index'
+            - $ref: '#/components/parameters/SKU_code'
+            #  ---- /Added line  ------------------------------------------
+        responses:
+          '200':
+            description: Successfully posted a SKU code for a specific item
+            content:
+                application/json:
+                schema:
+                    type: string
+                    items:
+                    #  ----- Added line  --------------------------------
+                    $ref: '#/components/schemas/Item'
+                    #  ---- /Added line  --------------------------------
+            '400':
+            #  ----- Added line  ----------------------------------------
+            $ref: '#/components/responses/400Error'
+            #  ---- /Added line  ---------------------------------------- 
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+
+  schemas:
+    Number:
+      type: integer
+    Item:
+      type: string
+
+    ItemDetails:
+      type: object
+      properties:
+        item_name:
+          type: string
+        item_type:
+            type: string
+        description:
+            type: string  
+    
+    Inventory:
+        type: integer
+
+    Cart:
+        type: string
+    
+    Pricing:
+        type: string
+
+    Promotion:
+        type: string
+
+    Payment:
+        type: string
+
+  #  ----- Added lines  ----------------------------------------
+  parameters:
+    item_details:
+      name: details
+      in: query
+      description: Sends in details to get an item index number back
+      schema:
+        type: object
+        properties:
+            item_name:
+                type: string
+            item_type:
+                type: string
+            description:
+                type: string
+        
+    
+    item_index:
+      name: index_number
+      in: query
+      description: Sends in a integer that relates to specific items
+      schema:
+        type: integer
+
+    search_criteria:
+      name: criteria
+      in: query
+      description: Sends in search criteria to get an item index number back
+      schema:
+        type: object
+        properties:
+            item_type:
+                type: string
+            description:
+                type: string
+            
+    payment_info:
+        name: customer_payment
+        in: query
+        description: Sends in user's payment information to pay for item
+        schema:
+            type: object
+            properties:
+                customer_name:
+                    type: string
+                credit_card:
+                    type: integer
+                expiration_date:
+                    type: string
+                security_number:
+                    type: integer
+    SKU_code:
+      name: sku_code
+      in: query
+      description: Sends in SKU code that relates to a specific item
+      schema:
+        type: integer 
+
+
+  responses:
+    400Error:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object 
+            properties:
+              message:
+                type: string
+  #  ---- /Added lines  ----------------------------------------
